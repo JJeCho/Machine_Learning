@@ -1,6 +1,25 @@
 # Classification Model for Imbalanced Dataset
 
-I worked on building a classification model for an imbalanced dataset. The model is trying to classify Amazon products based on the number of ratings they have received into one of two categories or "bins." Specifically, it categorizes each product’s `rating_count` into:
+I wanted to try to building a classification model for an imbalanced dataset.
+The dataset I am working with is a large dataset of amazon products with these features
+  product_id - Product ID
+  product_name - Name of the Product
+  category - Category of the Product
+  discounted_price - Discounted Price of the Product
+  actual_price - Actual Price of the Product
+  discount_percentage - Percentage of Discount for the Product
+  rating - Rating of the Product
+  rating_count - Number of people who voted for the Amazon rating
+  about_product - Description about the Product
+  user_id - ID of the user who wrote review for the Product
+  user_name - Name of the user who wrote review for the Product
+  review_id - ID of the user review
+  review_title - Short review
+  review_content - Long review
+  img_link - Image Link of the Product
+  product_link - Official Website Link of the Product
+
+The model is trying to classify Amazon products based on the number of ratings they have received into one of two categories or "bins." Specifically, it categorizes each product’s `rating_count` into:
 
 - **Bin1 (Low Rating Count)**: Products with a low number of ratings.
 - **Bin2 (High Rating Count)**: Products with a high number of ratings.
@@ -10,7 +29,7 @@ The goal of the model is to predict which bin a product falls into based on feat
 ## Steps Taken, Challenges Encountered, and Methods Used
 
 ### 1. Initial Model Training and Class Imbalance Issue
-- The dataset was imbalanced, with a majority class (Bin1) having 264 samples and a minority class (Bin2) having only 29 samples. This caused most models, including Logistic Regression, SVC, Gradient Boosting, and others, to have high accuracy (close to 90%), but they failed to predict the minority class (Bin2) effectively.
+- The dataset was imbalanced for this purpose, with a majority class (Bin1) having 264 samples and a minority class (Bin2) having only 29 samples. This caused most models, including Logistic Regression, SVC, Gradient Boosting, and others, to have high accuracy (close to 90%), but they failed to predict the minority class (Bin2) effectively.
 - The models were biased toward predicting the majority class due to this imbalance, making the high accuracy misleading.
 
 ### 2. Evaluation Metrics and Observations
@@ -47,10 +66,10 @@ The goal of the model is to predict which bin a product falls into based on feat
   - Random Forest performed reliably in cross-validation but remained biased toward the majority class.
 
 ### 8. Next Steps for Improvement
-- I planned to further tune models using techniques like grid search or random search to find the optimal hyperparameters for Random Forest, SVC, and Logistic Regression.
+- I plan to further tune models using techniques like grid search or random search to find the optimal hyperparameters for Random Forest, SVC, and Logistic Regression.
 - Exploring ensemble methods like `BalancedRandomForestClassifier` or `EasyEnsemble` could help improve minority class prediction.
 - Adjusting SMOTE parameters with variants such as SMOTE-Tomek or SMOTE-ENN could refine how synthetic data is generated.
 - Additional focus on metrics like Precision-Recall AUC, F1-Score for the minority class, and confusion matrix analysis was recommended over accuracy alone to get a more complete picture of model performance.
 
 ### Conclusion
-By following these steps and addressing the challenges, I learned how to handle class imbalance, use advanced metrics for evaluation, and iterate on models to improve their ability to predict minority classes more accurately. This hands-on approach deepened my understanding of machine learning, especially with imbalanced datasets.
+By following these steps and addressing the challenges, I learned how to handle class imbalances, use advanced metrics for evaluation, and iterate on models to improve their ability to predict minority classes more accurately. This hands-on approach deepened my understanding of machine learning, especially with imbalanced datasets.
